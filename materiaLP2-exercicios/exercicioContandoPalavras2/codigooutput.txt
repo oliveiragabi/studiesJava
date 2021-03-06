@@ -1,0 +1,56 @@
+package aula4;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+
+public class FileOutputStream1 {
+
+	public static void main(String[] args) {
+		//gravando arquivo
+		//mexendo com byte
+
+		OutputStream os = null;
+		
+		String valor = "Santos santos santos";
+		
+		try {
+			
+			os = new FileOutputStream("saida.txt");
+			
+			byte[] valorVetor = valor.getBytes();
+			//pegando os bytes da string
+			
+	        os.write( valorVetor );
+		//jogando o conteudo em bytes dentro do arquivo
+	        
+	        os.flush();
+		//grava no arquivo
+
+	        os.close();
+		//fechando
+	        
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+		finally {
+			
+			if( os != null )
+				try {
+					os.close();
+				} 
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+	}
+
+}

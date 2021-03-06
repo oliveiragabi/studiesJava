@@ -1,0 +1,26 @@
+<%@ page languege="Java"  %>
+<%@ page import="model.Maravilha" %>
+<%@ page import="src.bean.VotarBean" %>
+
+<jsp: useBean id="votarbean" class="bean.VotarBean" scope="session">
+<!DOCTYPE html>
+<link rel="styleheet" href="css/index.css" />
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2> Escolha a Maravilha + Bonita </h2>
+
+<form action="votar" method="post">
+<table>
+<% for(Maravilha m: votarbean.getLista()) { %>
+<tr>
+	<td> <%= m.getDescricao() %> </td>
+
+</form> 
+
+</body>
+</html>

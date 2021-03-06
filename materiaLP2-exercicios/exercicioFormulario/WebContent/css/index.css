@@ -1,0 +1,47 @@
+body {
+	padding: 0px;
+	margin: 0px;
+}
+.areatrabalho {
+	width: 1000px;
+	height: 500px;
+	margin: 0px auto;	
+}
+.cabecario {
+	width: 1000px;
+	height: 30px;
+	background-color: #00007f;	
+	padding-top: 70px;	
+}
+.cabecario-barra {	
+	width: 970px;
+	height: 25px;
+	padding-right: 30px;
+	background-color: #d6bcfa;
+	color: #aa007f;
+	padding-top: 5px;	
+	text-align: right;	
+}
+.corpo {
+	width: 1000px;
+	height: 250px;
+	padding-top: 50px;
+	background-color: #daf9fd;
+}
+.tabela {
+	width: 300px;
+	margin: 0px auto;	
+}
+.sucesso {
+	text-align: center;
+	color: #ff007f;
+}
+.erro {
+	text-align: center;
+	color: red;
+}
+.rodape {
+	width: 1000px;
+	height: 100px;
+	background-color: #00007f;
+}

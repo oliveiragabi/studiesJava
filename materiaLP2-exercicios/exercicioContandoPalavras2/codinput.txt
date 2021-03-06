@@ -1,0 +1,63 @@
+package aula4;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class FileInputStream2 {
+
+	public static void main(String[] args) {
+		
+		try ( InputStream is = new FileInputStream("arquivo.txt") )
+		//colocando a condição dentro dos parenteses do try, pois a classe fileinputstream implementa a closable
+		//ou seja, fecha automaticamente
+		//lendo o arquivo
+		//sempre colocar o arquivo que será lido/gravado
+
+
+
+		{
+			
+			System.out.println( "tamanho em bytes: " + is.available() );
+			//o is é o obj do fileinputstream e ele tem um método avaliable
+			//o avaliable retorna um inteiro que é a qtd de bytes do arquivo
+			
+			int valor;
+						
+	        while ( ( valor = is.read() ) != -1 )
+			// o método read vai ficar repetindo enquanto for diferente de -1
+			//o caracter de final de arquivo representa o -1, ou seja, quando for -1 significa que é final de linha 
+			// método read le byte a byte  no arquivo
+
+		{
+	        
+	        	System.out.println( (char) valor );
+			// fazendo cast do byte
+			//irá retornar o caracter
+	                  	
+	        }
+	        
+		} 
+		catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		} 
+		catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+
+	}
+
+}
+
+// cada caracter tem um numero correspondente na tabela ascii
+//como está lendo byte a byte e só tem caracter
+//irá retornar o numero da tabela ascii correspondente àquele caracter
+//o file é executado independente do try estar certo ou n
+// esse o fechamento esta implicito, pois esta implementando a interface closable
+//a diferença dos dois eh essa

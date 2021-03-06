@@ -1,0 +1,56 @@
+import java.io.IOException;
+import java.io.StreamTokenizer;
+import java.io.StringReader;
+
+public class Tokenizer1 {
+
+	public static void main(String[] args) {
+		
+		StreamTokenizer streamTokenizer = new StreamTokenizer( new StringReader("Santos Santos 1 campeão brasileiro") );
+		
+		//stringreader tem uma estrutura semelhante à arquivo, tem seus caracteres especiais de fim de linha
+		// e de fim de arquivo
+
+		try {
+			
+			while(streamTokenizer.nextToken() != StreamTokenizer.TT_EOF )
+			//pega um a um token 
+			// verifica se é diferente do token de fim de arquivp
+			
+				
+				{
+
+				if( streamTokenizer.ttype == StreamTokenizer.TT_WORD )
+				//verificando se o conteudo do token é uma palavra {
+					
+					System.out.print( streamTokenizer.sval );
+									  //s de string
+					System.out.print( " - palavra \n" );
+					
+				} 
+				//senao for uma palavra, ele verifica se o conteudo é um número
+
+				else if( streamTokenizer.ttype == StreamTokenizer.TT_NUMBER ) {
+				
+					System.out.print( streamTokenizer.nval );
+							                 //n de number
+					System.out.print( " - numero \n" );
+					//recupera o valor e imprime
+				} 
+				//verificando se o token é o fim da linha
+				else if( streamTokenizer.ttype == StreamTokenizer.TT_EOL ) {
+					
+					System.out.println();
+					
+				}
+
+			}
+			
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

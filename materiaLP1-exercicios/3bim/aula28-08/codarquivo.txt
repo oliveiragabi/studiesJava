@@ -1,0 +1,80 @@
+
+package profile;
+
+
+
+ //importação da classe
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+ 
+//criação da classe
+public class ProFile{
+        
+        //método principal
+    public static void main(String args[]){
+        
+        PrintStream saida = System.out;
+        
+        //criando instância File
+        File objFl = new File("k:\\Java\\OutrasOpcoes");
+        
+        
+        
+        //tentando
+        try
+        {
+               //diretório existe?
+               if(!objFl.exists())
+                 {
+                       objFl.mkdirs();
+                       saida.println("Diretorio Criado : \t " + objFl.getPath());
+                 }
+                 
+               //arquivo
+               objFl = new File ("k:\\Java\\OutrasOpcoes\\Exemplo.java");
+               
+               if(!objFl.exists())
+                 {
+                       objFl.createNewFile();
+                       saida.println("Arquivo Criado : \t " + objFl.getPath());
+                       
+                       //cinco arquivos
+                       for (int i = 1; i <+5; i++)
+                       {
+                              objFl = new File ("k:\\Java\\OutrasOpcoes\\Texto" + i + ".txt");
+                              objFl.createNewFile();
+                           saida.println("Arquivo Criado : \t " + objFl.getPath());
+                       }
+                       
+                       saida.print("Confira e depois pressione ENTER");
+                       System.in.read(new byte[50]);
+                       
+                       }
+                       
+                       objFl.setReadOnly();
+                       saida.println("Propriedades de : \t" + objFl.getPath());
+                       saida.println("Leitura permitida : \t" + objFl.canRead());
+                       saida.println("Escrita permitida : \t" + objFl.canWrite());
+                       saida.println("Diretorio? : \t" + objFl.isDirectory());
+                       saida.println("Arquivo? : \t" + objFl.isFile());
+                       
+                       //deletando arquivo
+                       objFl = new File ("k:\\Java\\OutrasOpcoes\\Exemplo.java");
+                       objFl.delete();
+                       saida.println("\n Arquivos Excluido" + objFl.getPath());
+                              
+                       
+                       //cinco arquivos
+                       for (int i = 1; i <+5; i++)
+                       {
+                              objFl = new File ("k:\\Java\\OutrasOpcoes\\Texto" + i + ".txt");
+                              objFl.delete();
+                           saida.println("Arquivo Excluido : \t " + objFl.getPath());
+                       }
+                       
+                 } catch (IOException ex) {
+            Logger.getLogger(ProFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
